@@ -28,7 +28,7 @@ class CrawlerExecutor implements ICrawlerExecutor{
 
     start(): void {
         cron.schedule(this.cron, async () => {
-            console.log('[${this.crawler.corporation}] Crawling Start.');
+            console.log(`[${this.crawler.corporation}] Crawling Start.`);
 
             const newsCrawlingDtos = await this.crawler.crawling();
 
@@ -42,9 +42,9 @@ class CrawlerExecutor implements ICrawlerExecutor{
                         html
                     });
                     await newsRawHtml.save();
-                    console.log(`생성성공: ${title}`);
+                    console.log(`${newspaper}의 새로운 뉴스 기사: ${title}`);
                 } catch {
-                    console.log(`생성실패: ${title}`);
+
                 }
             });
         });

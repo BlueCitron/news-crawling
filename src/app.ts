@@ -13,7 +13,7 @@ import CrawlerExecutor from "./crawler/CrawlerExecutor";
         const crawler: ICrawler = crawlerFactory.getBean('HANKYUNG_ECONOMIC');
 
         // 크롤러 실행
-        const crawlerExecutor = new CrawlerExecutor('0 * * * * *', crawler);
+        const crawlerExecutor = new CrawlerExecutor('0 */5 * * * *', crawler);
         crawlerExecutor.start();
         
     } catch (e) {
